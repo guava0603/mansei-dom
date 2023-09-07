@@ -149,7 +149,7 @@ def handle_message(event):
             alt_text = "醫囑紀錄",
             template = ButtonsTemplate(
                 title = '醫囑紀錄',
-                text = '請問您要用什麼方式紀錄？',
+                text = '請請問您要用什麼方式紀錄？',
                 actions = [MessageTemplateAction(label='語音', text='語音'), MessageTemplateAction(label='文字', text='文字' )]
             )
         )
@@ -234,9 +234,24 @@ def handle_message(event):
             )
         )
         line_bot_api.reply_message(event.reply_token, message)
+    elif '時間：' in txt and '食物：' in txt and '症狀：' in txt:
+        message = TemplateSendMessage(
+            alt_text = "儲存飲食紀錄",
+            template = ConfirmTemplate(
+                text = '是否紀錄在今天的飲食紀錄？',
+                actions = [
+                    PostbackTemplateAction( label='是', data='action=record_food'),
+                    PostbackTemplateAction( label='否', data='action=norecord_food')
+                    # MessageTemplateAction(label='是', text='是，紀錄在今天的飲食紀錄'),
+                    # MessageTemplateAction(label='否', text='否' )
+                ]
+            )
+        )
+        line_bot_api.reply_message(event.reply_token, message)
 
-    else:
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=txt))
+
+    # else:
+    #     line_bot_api.reply_message(event.reply_token,TextSendMessage(text=txt))
     
     var_json["is_record"] = is_record
     var_json["is_entering"] = is_entering
@@ -264,6 +279,11 @@ def handle_postback(event):
             )
         )
         line_bot_api.reply_message(event.reply_token, message)
+    elif backdata.get('action') == "record_food":
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text='已新增此筆飲食紀錄'))
+    elif backdata.get('action') == "norecord_food":
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text='已取消新增此筆飲食紀錄'))
+
 
 # @handler.add(MessageEvent, message=TextMessage)
 # def handle_message(event):
