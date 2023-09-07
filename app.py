@@ -24,8 +24,10 @@ people_json = json.load(p)
 is_record = False
 is_entering = False
 
-line_bot_api = LineBotApi('n0GThW+dzgtzOKw0aaiVt5mdkOVt36Ts9U6qRjSHzYU818SCSN0llBsdZ6TOFIm++AEGFZgwnYsAo0dMErjSrvI0ar+jt+F4Sx63InLgXeL7mZuTsw5lRpv7AWSuS0uN67yCJodkr9E/x7TpJgAyUgdB04t89/1O/w1cDnyilFU=')
-handler = WebhookHandler('2b3d7b7bf941da91bf6b6d6352fe5af4')
+# line_bot_api = LineBotApi('n0GThW+dzgtzOKw0aaiVt5mdkOVt36Ts9U6qRjSHzYU818SCSN0llBsdZ6TOFIm++AEGFZgwnYsAo0dMErjSrvI0ar+jt+F4Sx63InLgXeL7mZuTsw5lRpv7AWSuS0uN67yCJodkr9E/x7TpJgAyUgdB04t89/1O/w1cDnyilFU=')
+# handler = WebhookHandler('2b3d7b7bf941da91bf6b6d6352fe5af4')
+line_bot_api = LineBotApi('Ou8qF98QS41sHS9veU8r7de+jUCa4z00KM9hSfILegdYKZVfN01JHINQbLhwpf1Lurv3VgdMH/k4i64ouMJ653lN9NAw+kgK717Kf44UN0Da/zepEKrizTdyqeYUUy2CN64q4sEqkRhVoSJjThW6ZwdB04t89/1O/w1cDnyilFU=')
+handler = WebhookHandler('f6a95a74b0912b85d9ea6bec7ad6eebf')
 
 liffid="2000498096-XzeBzlB5"
 
