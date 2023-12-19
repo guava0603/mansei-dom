@@ -97,29 +97,29 @@
             "牛肉湯": "油脂含量高的肉類（紅肉）"
         }
         function initializeLiff(myLiffId) {
-            liff
-                .init({
-                    liffId: myLiffId
-                })
-                .then(() => {
-                    // start to use LIFF's api
-                    // initializeApp();
-                    language = liff.getLanguage(); // String。引用 LIFF SDK 的頁面，頁面中的 lang 值
-                    version = liff.getVersion(); // String。LIFF SDK 的版本
-                    isInClient = liff.isInClient(); // Boolean。回傳是否由 LINE App 存取
-                    isLoggedIn = liff.isLoggedIn(); // Boolean。使用者是否登入 LINE 帳號。true 時，可呼叫需要 Access Token 的 API
-                    os = liff.getOS(); // String。回傳使用者作業系統：ios、android、web
-                    lineVersion = liff.getLineVersion(); // 使用者的 LINE 版本
+            // liff
+            //     .init({
+            //         liffId: myLiffId
+            //     })
+            //     .then(() => {
+            //         // start to use LIFF's api
+            //         // initializeApp();
+            //         language = liff.getLanguage(); // String。引用 LIFF SDK 的頁面，頁面中的 lang 值
+            //         version = liff.getVersion(); // String。LIFF SDK 的版本
+            //         isInClient = liff.isInClient(); // Boolean。回傳是否由 LINE App 存取
+            //         isLoggedIn = liff.isLoggedIn(); // Boolean。使用者是否登入 LINE 帳號。true 時，可呼叫需要 Access Token 的 API
+            //         os = liff.getOS(); // String。回傳使用者作業系統：ios、android、web
+            //         lineVersion = liff.getLineVersion(); // 使用者的 LINE 版本
 
-                    if(!isLoggedIn) {
-                        liff.login({
-                            redirectUri: 'https://dc6d-103-5-140-154.ngrok-free.app/page'
-                        });
-                    }
-                })
-                .catch((err) => {
-                    alert(err);
-                });
+            //         if(!isLoggedIn) {
+            //             liff.login({
+            //                 redirectUri: 'https://dc6d-103-5-140-154.ngrok-free.app/page'
+            //             });
+            //         }
+            //     })
+            //     .catch((err) => {
+            //         alert(err);
+            //     });
         }
 
         function sure() {
@@ -131,9 +131,9 @@
             if (!food.value) {
                 window.alert('請填寫「食物」欄位');
                 return;
-            // } else if (!cook.value) {
-            //     window.alert('請填寫「烹調方式」欄位');
-            //     return;
+            } else if (!cook.value) {
+                window.alert('請填寫「烹調方式」欄位');
+                return;
             }
             if (!sympton.value) sympton.value = '無';
 
@@ -149,20 +149,20 @@
                 msg += `\n導致胃食道逆流因素: ${dataa[food.value]}`
             }
             console.log(msg);
-            liff.sendMessages([{
-                'type': 'text',
-                'text': msg
-            }]).then(function () {
-                // window.alert('Message sent');
-                liff.closeWindow();
-            }).catch(function (error) {
-                window.alert('資料傳送失敗: ' + error);
-                // liff.closeWindow();
-            });
+            // liff.sendMessages([{
+            //     'type': 'text',
+            //     'text': msg
+            // }]).then(function () {
+            //     // window.alert('Message sent');
+            //     liff.closeWindow();
+            // }).catch(function (error) {
+            //     window.alert('資料傳送失敗: ' + error);
+            //     // liff.closeWindow();
+            // });
         }
 
         window.onload = () => {
-            initializeLiff('2000677556-lOrjPZ8p');
+            // initializeLiff('2000677556-lOrjPZ8p');
         }
 
     </script>

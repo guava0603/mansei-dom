@@ -198,44 +198,48 @@ def handle_message(event):
     elif txt in list(people_json.keys()):
         strn = '\n'.join(people_json[txt])
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text=strn))
+    elif txt == '回饋表單':
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='https://docs.google.com/forms/d/e/1FAIpQLSdlqpmCLe8zTa3qCm7WxrOvlj9XOjCJHxWdutpuBGyM2a2VRA/viewform'))
     elif txt == '營養諮詢':
         message = TemplateSendMessage( alt_text='轉盤樣板',
             template=CarouselTemplate(
                 columns=[
                     CarouselColumn(
-                        title='李婉萍營養師',
-                        text='#可預約一~五 8:00-9:00',
-                        thumbnail_image_url='https://i.imgur.com/Qid7CNt.png',
+                        title='李朱萍營養師',
+                        text='專長特色\n慢性病飲\n新陳代謝症候\n婦幼營\n減重營養',
+                        thumbnail_image_url='https://i.imgur.com/ZNjRG6Q.png',
                         actions=[PostbackTemplateAction( label='立即預約', data='action=reserve')]
                     ),
                     CarouselColumn(
-                        title='余朱青營養師',
-                        text='#可預約一~五 8:00-9:00',
-                        thumbnail_image_url='https://i.imgur.com/TgEqNgG.jpg',
+                        title='余環青營養師',
+                        text='專長特色\n健康減\n老年人的營養調理',
+                        thumbnail_image_url='https://i.imgur.com/IhmuLsI.png',
                         actions=[PostbackTemplateAction( label='立即預約', data='action=reserve')]
                     ),
                     CarouselColumn(
-                        title='郭環棻營養師',
-                        text='#可預約一~五 8:00-9:00',
-                        thumbnail_image_url='https://i.imgur.com/GZYD7Yh.jpg',
+                        title='郭依棻營養師',
+                        text='專長特色\n運動營養\n食品安全',
+                        thumbnail_image_url='https://i.imgur.com/G4iHU51.png',
                         actions=[PostbackTemplateAction( label='立即預約', data='action=reserve')]
                     ),
                     CarouselColumn(
-                        title='曾依田營養師',
-                        text='#可預約一~五 8:00-9:00',
-                        thumbnail_image_url='https://i.imgur.com/OXe5KQy.jpg',
+                        title='曾惠田營養師',
+                        text='專長特色\n運動營養\n三高體質調理\n腎病飲食規劃',
+                        thumbnail_image_url='https://i.imgur.com/AEdmVSN.png',
                         actions=[PostbackTemplateAction( label='立即預約', data='action=reserve')]
                     ),
                     CarouselColumn(
-                        title='嫚嫚營養師',
-                        text='#可預約一~五 8:00-9:00',
-                        thumbnail_image_url='https://i.imgur.com/KRy2sG7.jpg',
+                        title='鄭婉華營養師',
+                        text='專長特色\n內科營養照顧\n健康減重及抗老美肌營養',
+                        thumbnail_image_url='https://i.imgur.com/cUQxzkA.png',
                         actions=[PostbackTemplateAction( label='立即預約', data='action=reserve')]
                     )
                 ]
             )
         )
         line_bot_api.reply_message(event.reply_token, message)
+    elif txt == '飲食記錄':
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='https://liff.line.me/2000677556-lOrjPZ8p'))
     elif '時間：' in txt and '食物：' in txt and '症狀：' in txt:
         message = TemplateSendMessage(
             alt_text = "儲存飲食紀錄",

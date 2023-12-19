@@ -142,3 +142,5 @@ wrapt==1.15.0
 wsproto==1.0.0
 yarl==1.9.2
 zipp==3.7.0
+flask
+firebase_admin
